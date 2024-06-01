@@ -1,7 +1,7 @@
 <section class="contact_section" id="contact_section">
     <div class="contact_div">
         <h1>Contact Me</h1>
-        <form action="/sendEmail" method="POST" class="contactform">
+        <form action="/sendEmail" method="post" class="contactform" id="contactForm">
             <div class="content">
                 <label for="name">Name</label>
                 <input type="text" name="name" id="name" required>
@@ -21,3 +21,9 @@
         <h4 style="color: green; margin-top: 10px;">{{data}}</h4>
     </div>
 </section>
+<div id="popup">
+    <div id="popup-content">
+        <span class="close-popup" onclick="closePopup()">&times;</span>
+        <p id="popup-message"></p>
+    </div>
+</div>

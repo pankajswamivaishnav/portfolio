@@ -22,7 +22,6 @@ app.set("views", viewsPath);
 hbs.registerPartials(partialsPath);
 
 app.get("/", (req, res) => {
-  console.log("object");
   res.render("index");
 });
 
