@@ -255,11 +255,11 @@ section {
 .frame {
     border: 2px solid var(--lightgreen);
     border-radius: 12px;
-    padding: 6px;
-    /* background-color: var(--lightgreen); */
-    background-color: var(--text_color);
+    padding: 6px 6px 0 6px;
+    background-color: var(--lightgreen);
+    /* background-color: var(--text_color); */
     width: 320px;
-    height: 350px;
+    height: 344px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -792,6 +792,7 @@ footer {
     }
 
     .frame {
+        padding: 6px 10px;
         width: 250px;
         height: 300px;
         margin-bottom: 10px;
