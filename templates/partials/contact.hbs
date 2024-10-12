@@ -27,3 +27,33 @@
         <p id="popup-message"></p>
     </div>
 </div>
+
+<!-- Add this JavaScript code -->
+<script>
+    // Function to handle form submission
+    document.getElementById('contactForm').addEventListener('submit', async function (event) {
+        event.preventDefault();  // Prevent the default form submission (page refresh)
+
+        // Collect the form data
+        const formData = new FormData(this);
+        
+        try {
+            // Send the data using fetch API (you can replace '/sendEmail' with your server route)
+            const response = await fetch('/sendEmail', {
+                method: 'POST',
+                body: formData
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                // Display success message
+                document.getElementById('responseMessage').textContent = result.message || 'Email sent successfully!';
+                this.reset();  // Reset the form
+            } else {
+                throw new Error('Failed to send email');
+            }
+        } catch (error) {
+            document.getElementById('responseMessage').textContent = 'Error sending email. Please try again later.';
+        }
+    });
+</script>
