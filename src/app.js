@@ -9,9 +9,14 @@ const userData = require("./models/schema");
 
 // HBS OR Partials Setup
 const path = require("path");
-const staticPath = path.join(__dirname, "../public/");
-const viewsPath = path.join(__dirname, "../templates/views/");
-const partialsPath = path.join(__dirname, "../templates/partials/");
+// const staticPath = path.join(__dirname, "../public/");
+// const viewsPath = path.join(__dirname, "../templates/views/");
+// const partialsPath = path.join(__dirname, "../templates/partials/");
+
+const staticPath = path.join(__dirname, "public");
+const viewsPath = path.join(__dirname, "templates/views");
+const partialsPath = path.join(__dirname, "templates/partials");
+
 
 const hbs = require("hbs");
 const { sendUser } = require("../public/js/sendMail");
