@@ -30,6 +30,11 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+app.get("/ping", (req, res) => {
+  res.send("Server running ✅");
+});
+
+
 app.post("/save", async (req, res) => {
   try {
     const data = new userData({
