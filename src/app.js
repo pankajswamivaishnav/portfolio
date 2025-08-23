@@ -42,6 +42,8 @@ app.post("/save", async (req, res) => {
 
 app.post("/sendEmail", sendUser);
 
-app.listen(port, () => {
-  console.log(`server started at port number ${port}`);
-});
+module.exports = app;
+
+// app.listen(port, () => {
+//   console.log(`server started at port number ${port}`);
+// });
