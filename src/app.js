@@ -27,7 +27,8 @@ app.set("views", viewsPath);
 hbs.registerPartials(partialsPath);
 
 app.get("/", (req, res) => {
-  res.render("index");
+  console.log("run this")
+  res.render("views/index");
 });
 
 app.get("/ping", (req, res) => {
