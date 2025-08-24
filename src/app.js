@@ -9,13 +9,13 @@ const userData = require("./models/schema");
 
 // HBS OR Partials Setup
 const path = require("path");
-// const staticPath = path.join(__dirname, "../public/");
-// const viewsPath = path.join(__dirname, "../templates/views/");
-// const partialsPath = path.join(__dirname, "../templates/partials/");
+const staticPath = path.join(__dirname, "../public/");
+const viewsPath = path.join(__dirname, "../templates/views/");
+const partialsPath = path.join(__dirname, "../templates/partials/");
 
-const staticPath = path.join(__dirname, "public");
-const viewsPath = path.join(__dirname, "templates/views");
-const partialsPath = path.join(__dirname, "templates/partials");
+// const staticPath = path.join(__dirname, "public");
+// const viewsPath = path.join(__dirname, "templates/views");
+// const partialsPath = path.join(__dirname, "templates/partials");
 
 
 const hbs = require("hbs");
@@ -27,8 +27,7 @@ app.set("views", viewsPath);
 hbs.registerPartials(partialsPath);
 
 app.get("/", (req, res) => {
-  console.log("run this")
-  res.render("views/index");
+  res.render("index");
 });
 
 app.get("/ping", (req, res) => {
