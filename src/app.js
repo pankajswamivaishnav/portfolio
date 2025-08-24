@@ -1,7 +1,6 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 require("./db/conn");
@@ -13,11 +12,6 @@ const staticPath = path.join(__dirname, "../public/");
 const viewsPath = path.join(__dirname, "../templates/views/");
 const partialsPath = path.join(__dirname, "../templates/partials/");
 
-// const staticPath = path.join(__dirname, "public");
-// const viewsPath = path.join(__dirname, "templates/views");
-// const partialsPath = path.join(__dirname, "templates/partials");
-
-
 const hbs = require("hbs");
 const { sendUser } = require("../public/js/sendMail");
 
@@ -28,10 +22,6 @@ hbs.registerPartials(partialsPath);
 
 app.get("/", (req, res) => {
   res.render("index");
-});
-
-app.get("/ping", (req, res) => {
-  res.send("Server running ✅");
 });
 
 
@@ -54,6 +44,3 @@ app.post("/sendEmail", sendUser);
 
 module.exports = app;
 
-// app.listen(port, () => {
-//   console.log(`server started at port number ${port}`);
-// });
