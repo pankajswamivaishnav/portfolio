@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
+const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 require("./db/conn");
@@ -42,5 +43,10 @@ app.post("/save", async (req, res) => {
 
 app.post("/sendEmail", sendUser);
 
+app.listen(port, () => {
+  console.log(`server started at port number ${port}`);
+});
+
 module.exports = app;
+
 

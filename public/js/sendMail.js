@@ -18,13 +18,15 @@ const sendUser = async (req, res) => {
       text: message,
     };
 
-    transporter.sendMail(mailOptions, function (error, info) {
-      if (error) {
-        res.status(500).send("Error sending email");
-      } else {
-        res.render("index");
-      }
-    });
+ transporter.sendMail(mailOptions, function (error, info) {
+  if (error) {
+    console.error("Nodemailer error:", error);
+    return res.status(500).json({ message: "Error sending email", error: error.toString() });
+  } else {
+    return res.render("index"); 
+  }
+});
+
   } catch (err) {
     console.log("backend catch error", err);
     res.status(500).send("Error");
