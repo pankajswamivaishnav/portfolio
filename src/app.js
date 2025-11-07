@@ -1,7 +1,9 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
+const cors = require("cors");
 const port = process.env.PORT || 3000;
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 require("./db/conn");
@@ -16,6 +18,7 @@ const partialsPath = path.join(__dirname, "../templates/partials/");
 const hbs = require("hbs");
 const { sendUser } = require("../public/js/sendMail");
 
+app.use(cors());
 app.use(express.static(staticPath));
 app.set("view engine", "hbs");
 app.set("views", viewsPath);
@@ -24,7 +27,6 @@ hbs.registerPartials(partialsPath);
 app.get("/", (req, res) => {
   res.render("index");
 });
-
 
 app.post("/save", async (req, res) => {
   try {
@@ -48,5 +50,3 @@ app.listen(port, () => {
 });
 
 module.exports = app;
-
-
