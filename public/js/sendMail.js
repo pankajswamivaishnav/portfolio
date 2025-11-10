@@ -12,8 +12,8 @@ const sendUser = async (req, res) => {
     });
 
     var mailOptions = {
-      from: process.env.EMAIL,
-      to: email,
+      from: email,
+      to: process.env.EMAIL,
       subject: "New Message from " + name,
       text: message,
     };
