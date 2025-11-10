@@ -12,12 +12,19 @@ const sendUser = async (req, res) => {
     });
 
     var mailOptions = {
-      from: email,
-      to: process.env.EMAIL,
-      subject: "New Message from " + name,
-      text: message,
-    };
+  from: `Website Contact Form <${process.env.EMAIL}>`,
+  to: process.env.EMAIL, 
+  subject: `New Message from ${name}`,
+  text: `
+You have received a new message from your website contact form.
 
+Name: ${name}
+Email: ${email}
+Message:
+${message}
+  `,
+  replyTo: email, 
+};
  transporter.sendMail(mailOptions, function (error, info) {
   if (error) {
     console.error("Nodemailer error:", error);
